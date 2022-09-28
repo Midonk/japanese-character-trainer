@@ -18,88 +18,88 @@ MonoBehaviour:
     Enable: 1
   - Latin: i
     Hiragana: "\u3044"
-    Enable: 1
+    Enable: 0
   - Latin: u
     Hiragana: "\u3046"
-    Enable: 1
+    Enable: 0
   - Latin: e
     Hiragana: "\u3048"
-    Enable: 1
+    Enable: 0
   - Latin: o
     Hiragana: "\u304A"
     Enable: 1
   - Latin: ka
     Hiragana: "\u304B"
-    Enable: 1
+    Enable: 0
   - Latin: ki
     Hiragana: "\u304D"
-    Enable: 1
+    Enable: 0
   - Latin: ku
     Hiragana: "\u304F"
-    Enable: 1
+    Enable: 0
   - Latin: ke
     Hiragana: "\u3051"
     Enable: 1
   - Latin: ko
     Hiragana: "\u3053"
-    Enable: 1
+    Enable: 0
   - Latin: sa
     Hiragana: "\u3055"
-    Enable: 1
+    Enable: 0
   - Latin: shi
     Hiragana: "\u3057"
-    Enable: 1
+    Enable: 0
   - Latin: su
     Hiragana: "\u3059"
-    Enable: 1
+    Enable: 0
   - Latin: se
     Hiragana: "\u305B"
-    Enable: 1
+    Enable: 0
   - Latin: so
     Hiragana: "\u305D"
-    Enable: 1
+    Enable: 0
   - Latin: ta
     Hiragana: "\u305F"
     Enable: 1
   - Latin: chi
     Hiragana: "\u3061"
-    Enable: 1
+    Enable: 0
   - Latin: tsu
     Hiragana: "\u3064"
-    Enable: 1
+    Enable: 0
   - Latin: te
     Hiragana: "\u3066"
-    Enable: 1
+    Enable: 0
   - Latin: to
     Hiragana: "\u3068"
-    Enable: 1
+    Enable: 0
   - Latin: na
     Hiragana: "\u306A"
     Enable: 1
   - Latin: ni
     Hiragana: "\u306B"
-    Enable: 1
+    Enable: 0
   - Latin: nu
     Hiragana: "\u306C"
     Enable: 1
   - Latin: ne
     Hiragana: "\u306D"
-    Enable: 1
+    Enable: 0
   - Latin: no
     Hiragana: "\u306E"
-    Enable: 1
+    Enable: 0
   - Latin: ha
     Hiragana: "\u306F"
     Enable: 1
   - Latin: hi
     Hiragana: "\u3072"
-    Enable: 1
+    Enable: 0
   - Latin: fu
     Hiragana: "\u3075"
-    Enable: 1
+    Enable: 0
   - Latin: he
     Hiragana: "\u3078"
-    Enable: 1
+    Enable: 0
   - Latin: ho
     Hiragana: "\u307B"
     Enable: 1
@@ -108,13 +108,121 @@ MonoBehaviour:
     Enable: 1
   - Latin: mi
     Hiragana: "\u307F"
-    Enable: 1
+    Enable: 0
   - Latin: mu
     Hiragana: "\u3080"
-    Enable: 1
+    Enable: 0
   - Latin: me
     Hiragana: "\u3081"
     Enable: 1
   - Latin: mo
     Hiragana: "\u3082"
     Enable: 1
+  - Latin: ya
+    Hiragana: "\u3084"
+    Enable: 0
+  - Latin: yu
+    Hiragana: "\u3086"
+    Enable: 0
+  - Latin: yo
+    Hiragana: "\u3088"
+    Enable: 0
+  - Latin: ra
+    Hiragana: "\u3089"
+    Enable: 0
+  - Latin: ri
+    Hiragana: "\u308A"
+    Enable: 0
+  - Latin: ru
+    Hiragana: "\u308B"
+    Enable: 0
+  - Latin: re
+    Hiragana: "\u308C"
+    Enable: 0
+  - Latin: ro
+    Hiragana: "\u308D"
+    Enable: 0
+  - Latin: wa
+    Hiragana: "\u308F"
+    Enable: 0
+  - Latin: wo
+    Hiragana: "\u3092"
+    Enable: 0
+  - Latin: n
+    Hiragana: "\u3093"
+    Enable: 0
+  - Latin: ga
+    Hiragana: "\u304C"
+    Enable: 0
+  - Latin: gi
+    Hiragana: "\u304E"
+    Enable: 0
+  - Latin: gu
+    Hiragana: "\u3050"
+    Enable: 0
+  - Latin: ge
+    Hiragana: "\u3052"
+    Enable: 0
+  - Latin: go
+    Hiragana: "\u3054"
+    Enable: 0
+  - Latin: za
+    Hiragana: "\u3056"
+    Enable: 0
+  - Latin: ji
+    Hiragana: "\u3058"
+    Enable: 0
+  - Latin: zu
+    Hiragana: "\u305A"
+    Enable: 0
+  - Latin: ze
+    Hiragana: "\u305C"
+    Enable: 0
+  - Latin: zo
+    Hiragana: "\u305E"
+    Enable: 0
+  - Latin: da
+    Hiragana: "\u3060"
+    Enable: 0
+  - Latin: dji
+    Hiragana: "\u3062"
+    Enable: 0
+  - Latin: dzu
+    Hiragana: "\u3065"
+    Enable: 0
+  - Latin: de
+    Hiragana: "\u3067"
+    Enable: 0
+  - Latin: do
+    Hiragana: "\u3069"
+    Enable: 0
+  - Latin: ba
+    Hiragana: "\u3070"
+    Enable: 0
+  - Latin: bi
+    Hiragana: "\u3073"
+    Enable: 0
+  - Latin: bu
+    Hiragana: "\u3076"
+    Enable: 0
+  - Latin: be
+    Hiragana: "\u3079"
+    Enable: 0
+  - Latin: bo
+    Hiragana: "\u307C"
+    Enable: 0
+  - Latin: pa
+    Hiragana: "\u3071"
+    Enable: 0
+  - Latin: pi
+    Hiragana: "\u3074"
+    Enable: 0
+  - Latin: pu
+    Hiragana: "\u3077"
+    Enable: 0
+  - Latin: pe
+    Hiragana: "\u307A"
+    Enable: 0
+  - Latin: po
+    Hiragana: "\u307D"
+    Enable: 0
