@@ -1,0 +1,1 @@
+choose between harigana, katakana or both

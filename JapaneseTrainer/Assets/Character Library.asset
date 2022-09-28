@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4d789c2dd124a47a92ec0b2b052a7f, type: 3}
+  m_Name: Character Library
+  m_EditorClassIdentifier: 
+  Characters:
+  - Latin: a
+    Hiragana: "\u3042"
+    Enable: 1
+  - Latin: i
+    Hiragana: "\u3044"
+    Enable: 1
+  - Latin: u
+    Hiragana: "\u3046"
+    Enable: 1
+  - Latin: e
+    Hiragana: "\u3048"
+    Enable: 1
+  - Latin: o
+    Hiragana: "\u304A"
+    Enable: 1
+  - Latin: ka
+    Hiragana: "\u304B"
+    Enable: 1
+  - Latin: ki
+    Hiragana: "\u304D"
+    Enable: 1
+  - Latin: ku
+    Hiragana: "\u304F"
+    Enable: 1
+  - Latin: ke
+    Hiragana: "\u3051"
+    Enable: 1
+  - Latin: ko
+    Hiragana: "\u3053"
+    Enable: 1
+  - Latin: sa
+    Hiragana: "\u3055"
+    Enable: 1
+  - Latin: shi
+    Hiragana: "\u3057"
+    Enable: 1
+  - Latin: su
+    Hiragana: "\u3059"
+    Enable: 1
+  - Latin: se
+    Hiragana: "\u305B"
+    Enable: 1
+  - Latin: so
+    Hiragana: "\u305D"
+    Enable: 1
+  - Latin: ta
+    Hiragana: "\u305F"
+    Enable: 1
+  - Latin: chi
+    Hiragana: "\u3061"
+    Enable: 1
+  - Latin: tsu
+    Hiragana: "\u3064"
+    Enable: 1
+  - Latin: te
+    Hiragana: "\u3066"
+    Enable: 1
+  - Latin: to
+    Hiragana: "\u3068"
+    Enable: 1
+  - Latin: na
+    Hiragana: "\u306A"
+    Enable: 1
+  - Latin: ni
+    Hiragana: "\u306B"
+    Enable: 1
+  - Latin: nu
+    Hiragana: "\u306C"
+    Enable: 1
+  - Latin: ne
+    Hiragana: "\u306D"
+    Enable: 1
+  - Latin: no
+    Hiragana: "\u306E"
+    Enable: 1
+  - Latin: ha
+    Hiragana: "\u306F"
+    Enable: 1
+  - Latin: hi
+    Hiragana: "\u3072"
+    Enable: 1
+  - Latin: fu
+    Hiragana: "\u3075"
+    Enable: 1
+  - Latin: he
+    Hiragana: "\u3078"
+    Enable: 1
+  - Latin: ho
+    Hiragana: "\u307B"
+    Enable: 1
+  - Latin: ma
+    Hiragana: "\u307E"
+    Enable: 1
+  - Latin: mi
+    Hiragana: "\u307F"
+    Enable: 1
+  - Latin: mu
+    Hiragana: "\u3080"
+    Enable: 1
+  - Latin: me
+    Hiragana: "\u3081"
+    Enable: 1
+  - Latin: mo
+    Hiragana: "\u3082"
+    Enable: 1
