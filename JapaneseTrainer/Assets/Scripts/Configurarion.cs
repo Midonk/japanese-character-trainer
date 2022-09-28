@@ -78,6 +78,14 @@ public class Configurarion : MonoBehaviour
     {
         _config.SubmissionLimit = int.Parse(amount);
     }
+
+    public void SetAllCharacterToggle(bool value)
+    {
+        foreach (Toggle toggle in _characterToggles)
+        {
+            toggle.isOn = value;
+        }
+    }
         
     #endregion
 
@@ -86,6 +94,7 @@ public class Configurarion : MonoBehaviour
 
     private void SetupCharacterConfig()
     {
+        _characterToggles = new Toggle[_library.Characters.Length];
         for (int i = 0; i < _library.Characters.Length; i++)
         {
             var index = i;
@@ -96,6 +105,7 @@ public class Configurarion : MonoBehaviour
             characterDisplay.text = $"{character.Hiragana} ({character.Latin})";
             toggle.isOn = character.Enable;
             toggle.onValueChanged.AddListener(OnToggleChanged);
+            _characterToggles[i] = toggle;
 
             void OnToggleChanged(bool value)
             {
@@ -114,6 +124,13 @@ public class Configurarion : MonoBehaviour
         _amountDisplay.gameObject.SetActive(_config.GameMode == GameMode.Amount);
     }
 
+    #endregion
+
+
+    #region Private Fields
+
+    private Toggle[] _characterToggles;
+        
     #endregion
 }
 
