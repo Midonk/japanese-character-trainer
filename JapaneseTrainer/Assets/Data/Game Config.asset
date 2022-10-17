@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Game Config
   m_EditorClassIdentifier: 
   TimeLimit: 60
-  SubmissionLimit: 40
+  SubmissionLimit: 100
   ShowTimer: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 950039075748042881}
   - component: {fileID: 950039075748042880}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: pfb_timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

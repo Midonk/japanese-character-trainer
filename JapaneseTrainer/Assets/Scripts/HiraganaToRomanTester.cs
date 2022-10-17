@@ -2,17 +2,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class HiraganaToRomanTester : MonoBehaviour
 {
     #region Exposed
 
     [SerializeField] private GameData _data;
-    [SerializeField] private CharacterLibrary _library;
+    [SerializeField] private CharacterLibrary[] _libraries;
     [SerializeField] private Timer _timer;
 
     [Header("Trial")]
-    [SerializeField] private TMP_Text _hiraganaDisplay;
+    [FormerlySerializedAs("_hiraganaDisplay")]
+    [SerializeField] private TMP_Text _characterDisplay;
     [SerializeField] private TMP_InputField _userInput;
 
     [Header("Report")]
@@ -46,11 +48,16 @@ public class HiraganaToRomanTester : MonoBehaviour
     public void StartTrial()
     {
         SetupTrial();
-        _data.Reset();
-        for (int i = 0; i < _enabledIndexes.Length; i++)
+        if(_enabledCharacters.Length == 0)
         {
-            _mistakeReport[_enabledIndexes[i]] = 0;
+            //Create a modal to inform player
+            Debug.LogError("No character enabled in the character set");
+            _onTrialStarted?.Invoke();
+            return;
         }
+
+        _data.Reset();
+        //_mistakeReport.Clear();
 
         DrawCharacter();
         _onTrialStarted?.Invoke();
@@ -63,6 +70,7 @@ public class HiraganaToRomanTester : MonoBehaviour
         _submissionDisplay.text = _data.SubimissionCount.ToString();
         BuildMistakeReport();
         CalculateTiming();
+        _onTrialEnded?.Invoke();
     }
         
     #endregion
@@ -101,11 +109,10 @@ public class HiraganaToRomanTester : MonoBehaviour
         {
             averageTiming /= _data.SubimissionCount;
             _secondsPerChar.text = $"{averageTiming: #0.00} per character";
-
-            _onTrialEnded?.Invoke();
         }
     }
 
+    //use a pool ?
     private void BuildMistakeReport()
     {
         foreach (Transform child in _mistakePanel)
@@ -115,33 +122,23 @@ public class HiraganaToRomanTester : MonoBehaviour
 
         foreach (var item in _mistakeReport)
         {
-            if(item.Value == 0) continue;
+            //if(item.Value == 0) continue;
 
             var mistakeDisplay = Instantiate(_mistakeDisplayPrefab, _mistakePanel);
             var mistakeTexts = mistakeDisplay.GetComponentsInChildren<TMPro.TMP_Text>();
-            var hiragana = mistakeTexts[0];
+            var nativeCharacter = mistakeTexts[0];
             var mistakeCount = mistakeTexts[1];
-            hiragana.text = _library.Characters[item.Key].Hiragana;
+            var library = _libraries[item.Key.LibraryIndex];
+            nativeCharacter.text = library.Characters[item.Key.CharacterIndex].Native;
             mistakeCount.text = item.Value.ToString();
         }
-        /* for (int i = 0; i < _enabledIndexes.Length; i++)
-        {
-            if (_mistakeReport[i] == 0) continue;
-
-            var mistakeDisplay = Instantiate(_mistakeDisplayPrefab, _mistakePanel);
-            var mistakeTexts = mistakeDisplay.GetComponentsInChildren<TMPro.TMP_Text>();
-            var hiragana = mistakeTexts[0];
-            var mistakeCount = mistakeTexts[1];
-            hiragana.text = _library.Characters[_enabledIndexes[i]].Hiragana;
-            mistakeCount.text = _mistakeReport[i].ToString();
-        } */
     }
 
     private void DrawCharacter()
     {
-        var selectedIndex = Random.Range(0, _enabledIndexes.Length);
-        _currentHiraganaIndex = _enabledIndexes[selectedIndex];
-        _hiraganaDisplay.text = _library.Characters[_currentHiraganaIndex].Hiragana;
+        var selectedCharacterIndex = Random.Range(0, _enabledCharacters.Length);
+        _currentEnabledCharacterIndex = selectedCharacterIndex;
+        _characterDisplay.text =  CurrentLibrary.Characters[CurrentCharacterTable.CharacterIndex].Native;
     }
 
     private void VerifySubmition()
@@ -152,9 +149,14 @@ public class HiraganaToRomanTester : MonoBehaviour
             _data.Score ++;
         }
 
+        else if(!_mistakeReport.ContainsKey(CurrentCharacterTable))
+        {
+            _mistakeReport.Add(CurrentCharacterTable, 1);
+        }
+        
         else
         {
-            _mistakeReport[_currentHiraganaIndex] ++;
+            _mistakeReport[CurrentCharacterTable] ++;
         }
 
         _userInput.text = string.Empty;
@@ -170,24 +172,31 @@ public class HiraganaToRomanTester : MonoBehaviour
 
     private void FetchEnabledCharacters()
     {
-        var enabledIndexes = new List<int>();
-        for (var i = 0; i < _library.Characters.Length; i++)
+        var enabledCharacters = new List<CharacterTable>();
+        for (int j = 0; j < _libraries.Length; j++)
         {
-            if (!_library.Characters[i].Enable) continue;
+            for (var i = 0; i < _libraries[j].Characters.Length; i++)
+            {
+                if (!_libraries[j].Characters[i].Enable) continue;
 
-            enabledIndexes.Add(i);
+                enabledCharacters.Add(new CharacterTable
+                {
+                    LibraryIndex = j,
+                    CharacterIndex = i
+                });
+            }
         }
 
-        _enabledIndexes = enabledIndexes.ToArray();
+        _enabledCharacters = enabledCharacters.ToArray();
     }
 
     private void SetupMistakeReport()
     {
-        _mistakeReport = new Dictionary<int, int>(_enabledIndexes.Length);
-        for (int i = 0; i < _enabledIndexes.Length; i++)
+        _mistakeReport = new Dictionary<CharacterTable, int>(_enabledCharacters.Length);
+        /* for (int i = 0; i < _enabledCharacters.Length; i++)
         {
-            _mistakeReport.Add(_enabledIndexes[i], 0);
-        }
+            _mistakeReport.Add(_enabledCharacters[i], 0);
+        } */
     }
 
     #endregion
@@ -195,13 +204,23 @@ public class HiraganaToRomanTester : MonoBehaviour
 
     #region Private Fields
 
-    private int _currentHiraganaIndex;
-    private Dictionary<int, int> _mistakeReport;
-    private int[] _enabledIndexes;
-
-    private bool IsAnswerCorrect => !string.IsNullOrWhiteSpace(_userInput.text) && _userInput.text.Equals(_library.Characters[_currentHiraganaIndex].Latin);
+    private int _currentEnabledCharacterIndex;
+    private Dictionary<CharacterTable, int> _mistakeReport;
+    private CharacterTable[] _enabledCharacters;
+    private bool IsAnswerCorrect => !string.IsNullOrWhiteSpace(_userInput.text) && _userInput.text.ToLower().Equals(CurrentLibrary.Characters[CurrentCharacterTable.CharacterIndex].Latin);
+    public CharacterLibrary CurrentLibrary => _libraries[CurrentCharacterTable.LibraryIndex];
+    private CharacterTable CurrentCharacterTable => _enabledCharacters[_currentEnabledCharacterIndex];
 
     #endregion
+
+
+    private struct CharacterTable
+    {
+        public int LibraryIndex;
+        public int CharacterIndex;
+    }
 }
 
+
 //あいうえおかきくけこさしすせそたちつてとなにぬねの
+//アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤュヨラリルレロワヲンガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポ

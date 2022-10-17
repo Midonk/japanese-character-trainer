@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e4d789c2dd124a47a92ec0b2b052a7f, type: 3}
+  m_Name: Katakana Library
+  m_EditorClassIdentifier: 
+  Characters:
+  - Latin: a
+    Native: "\u30A2"
+    Enable: 1
+  - Latin: i
+    Native: "\u30A4"
+    Enable: 1
+  - Latin: u
+    Native: "\u30A6"
+    Enable: 1
+  - Latin: e
+    Native: "\u30A8"
+    Enable: 1
+  - Latin: o
+    Native: "\u30AA"
+    Enable: 1
+  - Latin: ka
+    Native: "\u30AB"
+    Enable: 0
+  - Latin: ki
+    Native: "\u30AD"
+    Enable: 0
+  - Latin: ku
+    Native: "\u30AF"
+    Enable: 0
+  - Latin: ke
+    Native: "\u30B1"
+    Enable: 0
+  - Latin: ko
+    Native: "\u30B3"
+    Enable: 0
+  - Latin: sa
+    Native: "\u30B5"
+    Enable: 0
+  - Latin: shi
+    Native: "\u30B7"
+    Enable: 0
+  - Latin: su
+    Native: "\u30B9"
+    Enable: 0
+  - Latin: se
+    Native: "\u30BB"
+    Enable: 0
+  - Latin: so
+    Native: "\u30BD"
+    Enable: 0
+  - Latin: ta
+    Native: "\u30BF"
+    Enable: 0
+  - Latin: chi
+    Native: "\u30C1"
+    Enable: 0
+  - Latin: tsu
+    Native: "\u30C4"
+    Enable: 0
+  - Latin: te
+    Native: "\u30C6"
+    Enable: 0
+  - Latin: to
+    Native: "\u30C8"
+    Enable: 0
+  - Latin: na
+    Native: "\u30CA"
+    Enable: 0
+  - Latin: ni
+    Native: "\u30CB"
+    Enable: 0
+  - Latin: nu
+    Native: "\u30CC"
+    Enable: 0
+  - Latin: ne
+    Native: "\u30CD"
+    Enable: 0
+  - Latin: no
+    Native: "\u30CE"
+    Enable: 0
+  - Latin: ha
+    Native: "\u30CF"
+    Enable: 0
+  - Latin: hi
+    Native: "\u30D2"
+    Enable: 0
+  - Latin: fu
+    Native: "\u30D5"
+    Enable: 0
+  - Latin: he
+    Native: "\u30D8"
+    Enable: 0
+  - Latin: ho
+    Native: "\u30DB"
+    Enable: 0
+  - Latin: ma
+    Native: "\u30DE"
+    Enable: 0
+  - Latin: mi
+    Native: "\u30DF"
+    Enable: 0
+  - Latin: mu
+    Native: "\u30E0"
+    Enable: 0
+  - Latin: me
+    Native: "\u30E1"
+    Enable: 0
+  - Latin: mo
+    Native: "\u30E2"
+    Enable: 0
+  - Latin: ya
+    Native: "\u30E4"
+    Enable: 0
+  - Latin: 
+    Native: 
+    Enable: 0
+  - Latin: yu
+    Native: "\u30E5"
+    Enable: 0
+  - Latin: 
+    Native: 
+    Enable: 0
+  - Latin: yo
+    Native: "\u30E8"
+    Enable: 0
+  - Latin: ra
+    Native: "\u30E9"
+    Enable: 0
+  - Latin: ri
+    Native: "\u30EA"
+    Enable: 0
+  - Latin: ru
+    Native: "\u30EB"
+    Enable: 0
+  - Latin: re
+    Native: "\u30EC"
+    Enable: 0
+  - Latin: ro
+    Native: "\u30ED"
+    Enable: 0
+  - Latin: wa
+    Native: "\u30EF"
+    Enable: 0
+  - Latin: 
+    Native: 
+    Enable: 0
+  - Latin: wo
+    Native: "\u30F2"
+    Enable: 0
+  - Latin: 
+    Native: 
+    Enable: 0
+  - Latin: n
+    Native: "\u30F3"
+    Enable: 0
+  - Latin: ga
+    Native: "\u30AC"
+    Enable: 0
+  - Latin: gi
+    Native: "\u30AE"
+    Enable: 0
+  - Latin: gu
+    Native: "\u30B0"
+    Enable: 0
+  - Latin: ge
+    Native: "\u30B2"
+    Enable: 0
+  - Latin: go
+    Native: "\u30B4"
+    Enable: 0
+  - Latin: za
+    Native: "\u30B6"
+    Enable: 0
+  - Latin: ji
+    Native: "\u30B8"
+    Enable: 0
+  - Latin: zu
+    Native: "\u30BA"
+    Enable: 0
+  - Latin: ze
+    Native: "\u30BC"
+    Enable: 0
+  - Latin: zo
+    Native: "\u30BE"
+    Enable: 0
+  - Latin: da
+    Native: "\u30C0"
+    Enable: 0
+  - Latin: dji
+    Native: "\u30C2"
+    Enable: 0
+  - Latin: dzu
+    Native: "\u30C5"
+    Enable: 0
+  - Latin: de
+    Native: "\u30C7"
+    Enable: 0
+  - Latin: do
+    Native: "\u30C9"
+    Enable: 0
+  - Latin: ba
+    Native: "\u30D0"
+    Enable: 0
+  - Latin: bi
+    Native: "\u30D3"
+    Enable: 0
+  - Latin: bu
+    Native: "\u30D6"
+    Enable: 0
+  - Latin: be
+    Native: "\u30D9"
+    Enable: 0
+  - Latin: bo
+    Native: "\u30DC"
+    Enable: 0
+  - Latin: pa
+    Native: "\u30D1"
+    Enable: 0
+  - Latin: pi
+    Native: "\u30D4"
+    Enable: 0
+  - Latin: pu
+    Native: "\u30D7"
+    Enable: 0
+  - Latin: pe
+    Native: "\u30DA"
+    Enable: 0
+  - Latin: po
+    Native: "\u30DD"
+    Enable: 0

@@ -10,219 +10,306 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e4d789c2dd124a47a92ec0b2b052a7f, type: 3}
-  m_Name: Character Library
+  m_Name: Hiragana Library
   m_EditorClassIdentifier: 
   Characters:
   - Latin: a
     Hiragana: "\u3042"
+    Katakana: "\u30A2"
     Enable: 1
   - Latin: i
     Hiragana: "\u3044"
-    Enable: 0
+    Katakana: "\u30A4"
+    Enable: 1
   - Latin: u
     Hiragana: "\u3046"
-    Enable: 0
+    Katakana: "\u30A6"
+    Enable: 1
   - Latin: e
     Hiragana: "\u3048"
-    Enable: 0
+    Katakana: "\u30A8"
+    Enable: 1
   - Latin: o
     Hiragana: "\u304A"
+    Katakana: "\u30AA"
     Enable: 1
   - Latin: ka
     Hiragana: "\u304B"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ki
     Hiragana: "\u304D"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ku
     Hiragana: "\u304F"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ke
     Hiragana: "\u3051"
+    Katakana: 
     Enable: 1
   - Latin: ko
     Hiragana: "\u3053"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: sa
     Hiragana: "\u3055"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: shi
     Hiragana: "\u3057"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: su
     Hiragana: "\u3059"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: se
     Hiragana: "\u305B"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: so
     Hiragana: "\u305D"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ta
     Hiragana: "\u305F"
+    Katakana: 
     Enable: 1
   - Latin: chi
     Hiragana: "\u3061"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: tsu
     Hiragana: "\u3064"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: te
     Hiragana: "\u3066"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: to
     Hiragana: "\u3068"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: na
     Hiragana: "\u306A"
+    Katakana: 
     Enable: 1
   - Latin: ni
     Hiragana: "\u306B"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: nu
     Hiragana: "\u306C"
+    Katakana: 
     Enable: 1
   - Latin: ne
     Hiragana: "\u306D"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: no
     Hiragana: "\u306E"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ha
     Hiragana: "\u306F"
+    Katakana: 
     Enable: 1
   - Latin: hi
     Hiragana: "\u3072"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: fu
     Hiragana: "\u3075"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: he
     Hiragana: "\u3078"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ho
     Hiragana: "\u307B"
+    Katakana: 
     Enable: 1
   - Latin: ma
     Hiragana: "\u307E"
+    Katakana: 
     Enable: 1
   - Latin: mi
     Hiragana: "\u307F"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: mu
     Hiragana: "\u3080"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: me
     Hiragana: "\u3081"
+    Katakana: 
     Enable: 1
   - Latin: mo
     Hiragana: "\u3082"
+    Katakana: 
     Enable: 1
   - Latin: ya
     Hiragana: "\u3084"
+    Katakana: 
+    Enable: 1
+  - Latin: 
+    Hiragana: 
+    Katakana: 
     Enable: 0
   - Latin: yu
     Hiragana: "\u3086"
+    Katakana: 
+    Enable: 1
+  - Latin: 
+    Hiragana: 
+    Katakana: 
     Enable: 0
   - Latin: yo
     Hiragana: "\u3088"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ra
     Hiragana: "\u3089"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ri
     Hiragana: "\u308A"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ru
     Hiragana: "\u308B"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: re
     Hiragana: "\u308C"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ro
     Hiragana: "\u308D"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: wa
     Hiragana: "\u308F"
+    Katakana: 
+    Enable: 1
+  - Latin: 
+    Hiragana: 
+    Katakana: 
     Enable: 0
   - Latin: wo
     Hiragana: "\u3092"
+    Katakana: 
+    Enable: 1
+  - Latin: 
+    Hiragana: 
+    Katakana: 
     Enable: 0
   - Latin: n
     Hiragana: "\u3093"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ga
     Hiragana: "\u304C"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: gi
     Hiragana: "\u304E"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: gu
     Hiragana: "\u3050"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ge
     Hiragana: "\u3052"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: go
     Hiragana: "\u3054"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: za
     Hiragana: "\u3056"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ji
     Hiragana: "\u3058"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: zu
     Hiragana: "\u305A"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ze
     Hiragana: "\u305C"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: zo
     Hiragana: "\u305E"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: da
     Hiragana: "\u3060"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: dji
     Hiragana: "\u3062"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: dzu
     Hiragana: "\u3065"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: de
     Hiragana: "\u3067"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: do
     Hiragana: "\u3069"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: ba
     Hiragana: "\u3070"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: bi
     Hiragana: "\u3073"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: bu
     Hiragana: "\u3076"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: be
     Hiragana: "\u3079"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: bo
     Hiragana: "\u307C"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: pa
     Hiragana: "\u3071"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: pi
     Hiragana: "\u3074"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: pu
     Hiragana: "\u3077"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: pe
     Hiragana: "\u307A"
-    Enable: 0
+    Katakana: 
+    Enable: 1
   - Latin: po
     Hiragana: "\u307D"
-    Enable: 0
+    Katakana: 
+    Enable: 1

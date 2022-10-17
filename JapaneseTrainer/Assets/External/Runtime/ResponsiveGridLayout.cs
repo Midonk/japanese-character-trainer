@@ -37,6 +37,7 @@ public class ResponsiveGridLayout : LayoutGroup
 
     #region Unity API
 
+#if UNITY_EDITOR
     protected override void OnValidate() 
     {
         base.OnValidate();
@@ -44,6 +45,7 @@ public class ResponsiveGridLayout : LayoutGroup
         Rows = _rows;
         Columns = _columns;
     }
+#endif
         
     #endregion
 

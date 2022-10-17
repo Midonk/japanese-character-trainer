@@ -1,5 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+#if UNITY_EDITOR
+using UnityEditor.Events;
+#endif
 
 public class Configurarion : MonoBehaviour
 {
@@ -7,14 +11,15 @@ public class Configurarion : MonoBehaviour
 
     [Header("Global")]
     [SerializeField] private GameConfig _config;
-    [SerializeField] private CharacterLibrary _library;
+    [SerializeField] private CharacterLibrary _defaultLibrary;
     [SerializeField] private Timer _timer;
     [SerializeField] private TMPro.TMP_Dropdown _gameModeDisplay;
     
 
     [Header("Character enabling")]
     [SerializeField] private RectTransform _characterToggleContainer;
-    [SerializeField] private GameObject _characterTogglePrefab;
+    [SerializeField] private GridToggle[] _characterToggles;
+
     
     [Header("Timer")]
     [SerializeField] private Toggle _timerVisibilityToggle;
@@ -32,7 +37,6 @@ public class Configurarion : MonoBehaviour
 
     private void Awake()
     {
-        SetupCharacterConfig();
         _gameModeDisplay.value = (int)_config.GameMode;
         _timerVisibilityToggle.isOn = _config.ShowTimer;
         _timer.SetVisible(_config.ShowTimer);
@@ -45,10 +49,11 @@ public class Configurarion : MonoBehaviour
             UpdateTimerConfigDisplay();
             UpdateAmountConfigDisplay();
         };
+
+        SwitchLibrary(_defaultLibrary);
     }
 
     #endregion
-
     
 
     #region Utils
@@ -81,38 +86,75 @@ public class Configurarion : MonoBehaviour
 
     public void SetAllCharacterToggle(bool value)
     {
-        foreach (Toggle toggle in _characterToggles)
+        foreach (GridToggle toggle in _characterToggles)
         {
-            toggle.isOn = value;
+            if(!toggle.Interactable) continue;
+            
+            toggle.ToggleItem(value);
         }
     }
-        
-    #endregion
 
-    
-    #region Plumbery
-
-    private void SetupCharacterConfig()
+    public void SwitchLibrary(CharacterLibrary library)
     {
-        _characterToggles = new Toggle[_library.Characters.Length];
-        for (int i = 0; i < _library.Characters.Length; i++)
+        _currentEditedLibrary = library;
+        foreach (var item in _characterToggles)
         {
-            var index = i;
-            var toggleDisplay = Instantiate(_characterTogglePrefab, _characterToggleContainer);
-            var characterDisplay = toggleDisplay.GetComponentInChildren<TMPro.TMP_Text>();
-            var toggle = toggleDisplay.GetComponentInChildren<Toggle>();
-            var character = _library.Characters[i];
-            characterDisplay.text = $"{character.Hiragana} ({character.Latin})";
-            toggle.isOn = character.Enable;
-            toggle.onValueChanged.AddListener(OnToggleChanged);
-            _characterToggles[i] = toggle;
+            if(!item.TryGetComponent<CharacterToggle>(out var toggle)) continue;
 
-            void OnToggleChanged(bool value)
+            toggle.Library = _currentEditedLibrary;
+        }
+    }
+
+#if UNITY_EDITOR
+    public void FetchCharacterToggles()
+    {
+        _characterToggles = _characterToggleContainer.GetComponentsInChildren<GridToggle>();
+        for (int i = 0; i < _characterToggles.Length; i++)
+        {
+            var toggle =_characterToggles[i];
+            //first row
+            if(i <= 15)
             {
-                _library.Characters[index].Enable = value;
+                UnityEventTools.AddIntPersistentListener(toggle.Toggle.onValueChanged, ToggleColumn, i);
+            }
+
+            else if(i % _rowLength == 0)
+            {
+                UnityEventTools.AddIntPersistentListener(toggle.Toggle.onValueChanged, ToggleRow, i);
+            }
+
+            else
+            {
+                UnityEventTools.AddIntPersistentListener(toggle.Toggle.onValueChanged, CheckSelectorToggle, i);
             }
         }
     }
+#endif
+    
+    
+    private void ToggleRow(int index)
+    {
+        var toggle = _characterToggles[index].Toggle;
+        for (int i = index; i < index + _rowLength; i++)
+        {
+            _characterToggles[i].ToggleItem(toggle.isOn);
+            CheckSelectorToggle(_characterToggles[i].Index);
+        }
+    }
+
+    private void ToggleColumn(int index)
+    {
+        var toggle = _characterToggles[index].Toggle;
+        for (int i = index; i < _characterToggles.Length; i += _rowLength)
+        {
+            _characterToggles[i].ToggleItem(toggle.isOn);
+        }
+    }
+
+    #endregion
+
+
+    #region Plumbery
 
     private void UpdateTimerConfigDisplay()
     {
@@ -124,12 +166,62 @@ public class Configurarion : MonoBehaviour
         _amountDisplay.gameObject.SetActive(_config.GameMode == GameMode.Amount);
     }
 
+    private void CheckSelectorToggle(int index)
+    {
+        CheckColumnSelector(index);
+        CheckRowSelector(index);
+    }
+
+    private void CheckRowSelector(int index)
+    {
+        for (int i = _rowLength; i < _characterToggles.Length; i += _rowLength)
+        {
+            var isRightRowIndex = index < i + _rowLength;
+            if (!isRightRowIndex) continue;
+
+            for (int j = i; j < i + 15; j++)
+            {
+                //search for any toggled on character
+                if (!_characterToggles[j].Toggle.isOn) continue;
+
+                _characterToggles[i].ToggleItem(true);
+                return;
+            }
+
+            _characterToggles[i].ToggleItem(false);
+            return;
+        }
+    }
+
+    private void CheckColumnSelector(int index)
+    {
+        for (int i = 1; i < _rowLength; i++)
+        {
+            var isRightColumnIndex = index % _rowLength == i;
+            if (!isRightColumnIndex) continue;
+
+            for (int j = index; j < _characterToggles.Length; j += _rowLength)
+            {
+                //search for any toggled on character
+                if (!_characterToggles[j].Toggle.isOn) continue;
+
+                _characterToggles[i].ToggleItem(true);
+                return;
+            }
+
+            _characterToggles[i].ToggleItem(false);
+            return;
+        }
+    }
+
+
     #endregion
 
 
     #region Private Fields
 
-    private Toggle[] _characterToggles;
+    private const int _rowLength = 16;
+    private CharacterLibrary _currentEditedLibrary;
         
     #endregion
 }
